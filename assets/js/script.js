@@ -321,13 +321,17 @@ function clearHighScores() {
 
 // Deletes leaderboard
 function deleteLeaderboard() {
-    scores = [];
-    localStorage.setItem("scores", JSON.stringify(scores));
+    var deleteScores = confirm("Are you sure that you want to delete the leaderboard?");
+    if (deleteScores) {
+        scores = [];
+        localStorage.setItem("scores", JSON.stringify(scores));
 
-    for (var i = leaderboardScoreEls.length - 1; i >= 0; i--) {
-        var child = leaderboardScoreEls.pop();
-        leaderboardEl.removeChild(child);
+        for (var i = leaderboardScoreEls.length - 1; i >= 0; i--) {
+            var child = leaderboardScoreEls.pop();
+            leaderboardEl.removeChild(child);
+        }
     }
+    
 }
 
 // Make section invisible function
