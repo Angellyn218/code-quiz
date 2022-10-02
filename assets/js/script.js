@@ -11,13 +11,23 @@ var screensEls = document.getElementsByClassName("screens");
 //              - sometimes buttons answers
 //              - sometimes buttons for start over/high score
 //              - sometimes input for saving initials and high score
-// buttons, inputs, and lists
-var welcomeEls = document.getElementsByClassName("welcome");
-var answersEls = document.getElementsByClassName("answers");
-var gameOverEls = document.getElementsByClassName("gameOver");
-var initialsEl = document.getElementById("initials");
+// *** buttons, inputs, and lists ***
+// welcome div:
+var startEl = document.getElementById("start");
+var scoreEl = document.getElementById("score");
+// Ansswers div:
+var answer0 = document.getElementById("0");
+var answer1 = document.getElementById("1");
+var answer2 = document.getElementById("2");
+var answer3 = document.getElementById("3");
+// GameOver div:
+var yesEl = document.getElementById("yes");
+var noEl = document.getElementById("no");
+// submitScore div:
 var saveEl = document.getElementById("save");
+// highScore div:
 var LeaderboardEl = document.getElementById("leaderboard");
+var exitEl = document.getElementById("exit");
 
 //      - questions array (objects):
 //              - question (string)
@@ -155,6 +165,7 @@ function welcome() {
 //              - if labeled save, call storeScore
 //              - if labelded back, call welcome function
 
+
 // checkAnswers function:
 //      - if button label matches correct answer in associated question add 1 to currentScore
 //      - else, subtract 15 seconds from timeLeft
@@ -201,4 +212,7 @@ function makeVisible(screen) {
         }
     }
 }
+
+// initialize screen
 init();
+
