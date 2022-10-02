@@ -111,6 +111,20 @@ function init() {
 //                     - when clicked, call initializeGame function
 //              - button2: "high scores" <--- not required
 //                     - when clicked, call highScores function
+function welcome() {
+    titleEl.textContent = "Welcome to Angel's Code Quiz!";
+    var button1El = document.createElement("button");
+    var button2El = document.createElement("button");
+
+    button1El.setAttribute("class", "start");
+    button1El.textContent = "Start Game";
+
+    button2El.setAttribute("class", "score");
+    button2El.textContent = "Leaderboard";
+
+    buttonsEl.appendChild(button1El);
+    buttonsEl.appendChild(button2El);
+}
 
 // intializeGame:
 //      - set currentScore = 0;
@@ -172,3 +186,5 @@ function init() {
 //              - intials score
 //      - button1: "Back to main"
 //              - when pressed, calls welcome function
+
+init();
