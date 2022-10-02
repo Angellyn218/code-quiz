@@ -16,6 +16,8 @@ var screensEls = document.getElementsByClassName("screens");
 var startEl = document.getElementById("start");
 var scoresEl = document.getElementById("scores");
 // Ansswers div:
+var currentScoreEl = document.getElementById("currentScore");
+var timeLeftEl = document.getElementById("timeLeft");
 var answer0El = document.getElementById("0");
 var answer1El = document.getElementById("1");
 var answer2El = document.getElementById("2");
@@ -118,7 +120,7 @@ var currentQuestion = 0;
 
 // when click event listener to button section
 //      - if object type is a button:
-//              - if labeled start, call initalizeGame function
+//              - if labeled start, call playGame function
 //              - if labeled score, call highScores function
 //              - if labeled answer_, call checkAnswers function
 //              - if labeled yes, call saveScore function
@@ -152,12 +154,6 @@ function welcome() {
 //      - set timeLeft = 90;
 //      - set currentQuestion = 0;
 //      - call playGame funtion
-function initializeGame() {
-    currentScore = 0;
-    timeLeft = 90;
-    currentQuestion = 0;
-    playGame();
-}
 
 // playGame function (called every second):
 //      - title: the question title at current index of questions array
@@ -170,7 +166,29 @@ function initializeGame() {
 //      - if timeLeft <= 0, call Game over function
 
 function playGame() {
-    console.log("play game!")
+    currentScore = 0;
+    timeLeft = 90;
+    currentQuestion = 0;
+    makeVisible("answers");
+
+    var timeInterval = setInterval(function() {
+        if (timeLeft > 0) {
+            currentScoreEl.textContent = "Score: " + currentScore;
+            timeLeftEl.textContent = "Time Left: " + timeLeft;
+
+            var current = quesions[currentQuestion];
+            titleEl.textContent = current.question;
+            answer0El.textContent = current.answers[0];
+            answer1El.textContent = current.answers[1];
+            answer2El.textContent = current.answers[2];
+            answer3El.textContent = current.answers[3];
+
+            timeLeft--;
+        } else {
+            
+            gameOver();
+        }
+    }, 1000);
 }
 
 // checkAnswer function:
@@ -237,7 +255,7 @@ function makeVisible(screen) {
 // initialize screen
 init();
 
-startEl.addEventListener("click", initializeGame);
+startEl.addEventListener("click", playGame);
 scoresEl.addEventListener("click", highScores);
 answer0El.addEventListener("click", checkAnswer("0"));
 answer1El.addEventListener("click", checkAnswer("1"));
