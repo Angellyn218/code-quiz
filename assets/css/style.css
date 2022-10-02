@@ -1,0 +1,82 @@
+:root{
+    --background-color: #dcecf5;
+    --start-title-color: darkblue;
+    --start-button-color: #ffc7aa, #ff803c;
+    --start-button-text-color: white;
+    --answer-button-color: #bcc2d0, #7997d6;
+    --answer-button-text-color: white;
+    --gameOver-button-color:  #ffc7aa, #ff803c;
+    --gameOver-button-text-color: white;
+    --save-button-color: #9fb797, #64af4d;
+    --save-button-text-color: white;
+    --exit-button-color: #97b6c5, #4697c0;
+    --exit-button-text-color: white;
+    --border-radius: 5px;
+}
+
+body {
+    text-align: center;
+    background-color: var(--background-color);
+}
+
+button {
+    border: none;
+    margin-left: 3px;
+    margin-right: 3px;
+}
+
+.title {
+    color: var(--start-title-color);
+}
+
+.welcome {
+    background-image: linear-gradient(var(--start-button-color));
+    color: var(--start-button-text-color);
+    border-radius: 25px;
+    font-size: medium;
+    padding: 12px 32px;
+}
+
+.answers {
+    background-image: linear-gradient(25deg, var(--answer-button-color));
+    color: var(--answer-button-text-color);
+    border-radius: var(--border-radius);
+    font-size: medium;
+    padding: 5px 15px;
+    margin-top: 3px;
+    margin-bottom: 2px;
+}
+
+.gameOver {
+    background-image: linear-gradient(25deg, var(--gameOver-button-color));
+    color: var(--gameOver-button-text-color);
+    border-radius: var(--border-radius);
+    font-size: medium;
+    padding: 12px 32px;
+}
+
+#save {
+    background-image: linear-gradient(25deg, var(--save-button-color));
+    color: var(--save-button-text-color);
+    border-radius: var(--border-radius);
+    padding: 5px 5px;
+}
+
+#exit {
+    background-image: linear-gradient(var(--exit-button-color));
+    color: var(--exit-button-text-color);
+    border-radius: var(--border-radius);
+    padding: 5px 5px;
+}
+
+li {
+    text-align: left;
+    margin-left: 40%;
+    margin-top: 2%;
+    padding-left: 2%;
+    font-weight: bold;
+    font-size: large;
+}
+
+
+

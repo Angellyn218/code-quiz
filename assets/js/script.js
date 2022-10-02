@@ -146,6 +146,7 @@ function init() {
 // welcome display --> not hidden
 function welcome() {
     titleEl.textContent = "Welcome to Angel's Code Quiz!";
+    titleEl.setAttribute("style", "color:#1B1725");
     makeVisible("welcome");
 }
 
@@ -285,7 +286,7 @@ function highScores() {
     makeVisible("highScore");
     for (var i = 0; i < scores.length; i++) {
         var li = document.createElement("li");
-        li.textContent = scores[i].initials + ": " + scores[i].score;
+        li.textContent = scores[i].initials + " - " + scores[i].score;
         leaderboardEl.appendChild(li);
         leaderboardScoreEls.push(li);
     }
