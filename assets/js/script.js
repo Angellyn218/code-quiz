@@ -125,14 +125,7 @@ function init() {
 // welcome display --> not hidden
 function welcome() {
     titleEl.textContent = "Welcome to Angel's Code Quiz!";
-    for (var i = 0; i < screensEls.length; i++) {
-        var id = screensEls[i].getAttribute("id");
-        if (id === "welcome") {
-            screensEls[i].setAttribute("style", "display:inline");
-        } else {
-            screensEls[i].setAttribute("style", "display:none");
-        }
-    }
+    makeVisible("welcome");
 }
 
 // intializeGame:
@@ -198,4 +191,14 @@ function welcome() {
 
 // Make section invisible function
 //      - makes all screens except for screen with id of input invisible
+function makeVisible(screen) {
+    for (var i = 0; i < screensEls.length; i++) {
+        var id = screensEls[i].getAttribute("id");
+        if (id === screen) {
+            screensEls[i].setAttribute("style", "display:inline");
+        } else {
+            screensEls[i].setAttribute("style", "display:none");
+        }
+    }
+}
 init();
