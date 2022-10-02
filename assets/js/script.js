@@ -2,18 +2,82 @@
 //      - Header/question section 
 //              - sometimes question
 //              - sometimes 'Good job! Save score'
+var titleEl = document.getElementById("title");
 //      - button section
 //              - sometimes buttons answers
 //              - sometimes buttons for start over/high score
 //              - sometimes input for saving initials and high score
+var buttonsEl = document.getElementById("buttons");
 //      - questions array (objects):
 //              - question (string)
 //              - array of possible answers (4 string)
 //              - correct answer (index/number)
+var quesions = [{
+    // question 1
+    question: "What is the main language used to add styling a website?",
+    answers: ["HTML", "JavaScript", "CSS", "Stack"],
+    correct: 2
+}, {
+    // question 2
+    question: "Where do you store variables within the browser that you want to access after reloading the page?",
+    answers: ["localStorage", "console.log it", "within the local js file", "within the css file"],
+    correct: 0
+}, {
+    // question 3
+    question: "What language do you use to create the basic structure of a webpage?",
+    answers: ["GitLab", "HTML", "CSS", "JavaScript"],
+    correct: 1
+}, {
+    // question 4
+    question: "What language can you use to make a webpage dynamic?",
+    answers: ["CSS", "JavaScript", "HTML", "python"],
+    correct: 1
+}, {
+    // question 5
+    question: "What is the best resource to learn about code syntax?",
+    answers: ["W3schools", "Mozilla", "StackOverflow", "All of the above"],
+    correct: 3
+}, {
+    // question 6
+    question: "What CSS display can you use to make a section of code into a flexbox container?",
+    answers: ["flex", "block", "inline", "inline-block"],
+    correct: 0
+}, {
+    // question 7
+    question: "When creating a timer, what does time unit does JavaScript use as a default?",
+    answers: ["seconds", "minutes", "miliseconds", "hours"],
+    correct: 2
+}, {
+    // question 8
+    question: "What piece of code can be used to prevent the default action (i.e. making a form submit)?",
+    answers: ["event.stopPropagation()", "event.key", "stopPropagation()", "event.preventDefault()"],
+    correct: 3
+}, {
+    // question 9
+    question: "When you want to access a section of your webpage using a nav bar, what is most convenient way to label the desired section?",
+    answers: ["id=", "class=", "data-___=", "src="],
+    correct: 1
+}, {
+    // question 10
+    question: "When you want to listen for a key down event, what do you put first element of the eventListener function?",
+    answers: ["click", "keydown", "submit", "keyup"],
+    correct: 1
+}];
+
+var question = {
+    // question 9
+    question: "When you want to access a section of your webpage using a nav bar, what is most convenient way to label the desired section?",
+    answers: ["id=", "class=", "data-___=", "src="],
+    correct: 1
+};
 //      - high scores array (local storage variable)
+var highScores = [];
 //      - timeLeft --> int
+var timeLeft = 0;
 //      - currentScore --> int
+var currentScore = 0;
 //      - currentQuestion --> int/index
+var currentQuestion = 0;
 // Temp Variables:
 //      - start button/start over button 
 //      - high score button
@@ -47,6 +111,7 @@
 // intializeGame:
 //      - set currentScore = 0;
 //      - set timeLeft = 90;
+//      - set currentQuestion = 0;
 //      - call playGame funtion
 
 
