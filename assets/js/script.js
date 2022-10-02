@@ -27,6 +27,7 @@ var finalScoreEl =document.getElementById("finalScore");
 var yesEl = document.getElementById("yes");
 var noEl = document.getElementById("no");
 // submitScore div:
+var initialsEl = document.getElementById("initials");
 var saveEl = document.getElementById("save");
 // highScore div:
 var LeaderboardEl = document.getElementById("leaderboard");
@@ -80,7 +81,7 @@ var questions = [{
     // question 9
     question: "When you want to access a section of your webpage using a nav bar, what is most convenient way to label the desired section?",
     answers: ["id=", "class=", "data-___=", "src="],
-    correct: 1
+    correct: 0
 }, {
     // question 10
     question: "When you want to listen for a key down event, what do you put for first element of the eventListener function?",
@@ -88,12 +89,6 @@ var questions = [{
     correct: 1
 }];
 
-var question = {
-    // question 9
-    question: "When you want to access a section of your webpage using a nav bar, what is most convenient way to label the desired section?",
-    answers: ["id=", "class=", "data-___=", "src="],
-    correct: 1
-};
 //      - high scores array (local storage variable)
 var scores = [];
 //      - timeLeft --> int
@@ -133,7 +128,10 @@ var currentQuestion = 0;
 //      - check saved high scores and save to high scores array
 //      - calls welcome to website function
 function init() {
-    scores = JSON.parse(localStorage.getItem("scores"));
+    var scoresLocalStorage = JSON.parse(localStorage.getItem("scores"));
+    if (scoresLocalStorage !== null) {
+        scores = scoresLocalStorage;
+    }
     welcome();
 }
 
@@ -258,8 +256,31 @@ function saveScore() {
 // storeScore function
 //      - save score to scores array. 
 //      - save scores array to localStorage
-function storeScore() {
+function storeScore(event) {
+    console.log(event);
+    event.preventDefault();
 
+    var score = {
+        initials: initialsEl.value.trim(),
+        score: currentScore
+    };
+
+    scores.push(score);
+
+    // if (scores.length == 0) {
+    //     scores.push(score);
+    // } else {
+    //     for (var i = 0; i < scores.length; i++) {
+    //         var current = scores[i];
+    //         if (current.score < currentScore) {
+    //             scores.splice(i, 0, score);
+    //         }
+    //     }
+    // }
+    
+    localStorage.setItem("scores", JSON.stringify(scores));
+
+    welcome();
 }
 
 
