@@ -30,7 +30,8 @@ var noEl = document.getElementById("no");
 var initialsEl = document.getElementById("initials");
 var saveEl = document.getElementById("save");
 // highScore div:
-var LeaderboardEl = document.getElementById("leaderboard");
+var leaderboardEl = document.getElementById("leaderboard");
+var leaderboardScoreEls = [];
 var exitEl = document.getElementById("exit");
 
 //      - questions array (objects):
@@ -291,7 +292,21 @@ function storeScore(event) {
 //      - button1: "Back to main"
 //              - when pressed, calls welcome function
 function highScores() {
-    console.log("score");
+    makeVisible("highScore");
+    for (var i = 0; i < scores.length; i++) {
+        var li = document.createElement("li");
+        li.textContent = scores[i].initials + ": " + scores[i].score;
+        leaderboardEl.appendChild(li);
+        leaderboardScoreEls.push(li);
+    }
+}
+
+function clearHighScores() {
+    for (var i = leaderboardScoreEls.length - 1; i >= 0; i--) {
+        var child = leaderboardScoreEls.pop();
+        leaderboardEl.removeChild(child);
+    }
+    welcome();
 }
 
 // Make section invisible function
@@ -319,5 +334,5 @@ answer3El.addEventListener("click", checkAnswer3);
 yesEl.addEventListener("click", saveScore);
 noEl.addEventListener("click", welcome);
 saveEl.addEventListener("click", storeScore);
-exitEl.addEventListener("click", welcome);
+exitEl.addEventListener("click", clearHighScores);
 
