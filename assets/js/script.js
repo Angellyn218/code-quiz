@@ -153,7 +153,10 @@ function welcome() {
 //      - set currentQuestion = 0;
 //      - call playGame funtion
 function initializeGame() {
-    console.log("start");
+    currentScore = 0;
+    timeLeft = 90;
+    currentQuestion = 0;
+    playGame();
 }
 
 // playGame function (called every second):
@@ -167,7 +170,7 @@ function initializeGame() {
 //      - if timeLeft <= 0, call Game over function
 
 function playGame() {
-
+    console.log("play game!")
 }
 
 // checkAnswer function:
