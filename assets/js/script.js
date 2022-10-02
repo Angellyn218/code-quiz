@@ -35,7 +35,7 @@ var exitEl = document.getElementById("exit");
 //              - question (string)
 //              - array of possible answers (4 string)
 //              - correct answer (index/number)
-var quesions = [{
+var questions = [{
     // question 1
     question: "What is the main language used to add styling a website?",
     answers: ["HTML", "JavaScript", "CSS", "Stack"],
@@ -176,7 +176,7 @@ function playGame() {
             currentScoreEl.textContent = "Score: " + currentScore;
             timeLeftEl.textContent = "Time Left: " + timeLeft;
 
-            var current = quesions[currentQuestion];
+            var current = questions[currentQuestion];
             titleEl.textContent = current.question;
             answer0El.textContent = current.answers[0];
             answer1El.textContent = current.answers[1];
@@ -185,7 +185,7 @@ function playGame() {
 
             timeLeft--;
         } else {
-            
+
             gameOver();
         }
     }, 1000);
@@ -194,8 +194,37 @@ function playGame() {
 // checkAnswer function:
 //      - if button label matches correct answer in associated question add 1 to currentScore
 //      - else, subtract 15 seconds from timeLeft
-function checkAnswer(num) {
-
+function checkAnswer0() {
+    if (questions[currentQuestion].correct === 0) {
+        currentScore++;
+    } else {
+        timeLeft = timeLeft - 15;
+    }
+    currentQuestion++;
+}
+function checkAnswer1() {
+    if (questions[currentQuestion].correct === 1) {
+        currentScore++;
+    } else {
+        timeLeft = timeLeft - 15;
+    }
+    currentQuestion++;
+}
+function checkAnswer2() {
+    if (questions[currentQuestion].correct === 2) {
+        currentScore++;
+    } else {
+        timeLeft = timeLeft - 15;
+    }
+    currentQuestion++;
+}
+function checkAnswer3() {
+    if (questions[currentQuestion].correct === 3) {
+        currentScore++;
+    } else {
+        timeLeft = timeLeft - 15;
+    }
+    currentQuestion++;
 }
 
 // gameOver function:
@@ -257,10 +286,10 @@ init();
 
 startEl.addEventListener("click", playGame);
 scoresEl.addEventListener("click", highScores);
-answer0El.addEventListener("click", checkAnswer("0"));
-answer1El.addEventListener("click", checkAnswer("1"));
-answer2El.addEventListener("click", checkAnswer("2"));
-answer3El.addEventListener("click", checkAnswer("3"));
+answer0El.addEventListener("click", checkAnswer0);
+answer1El.addEventListener("click", checkAnswer1);
+answer2El.addEventListener("click", checkAnswer2);
+answer3El.addEventListener("click", checkAnswer3);
 yesEl.addEventListener("click", saveScore);
 noEl.addEventListener("click", welcome);
 saveEl.addEventListener("click", storeScore);
