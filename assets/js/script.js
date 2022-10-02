@@ -236,6 +236,7 @@ function checkAnswer3() {
 //              - button2: "no"
 //                      - calls welcome function
 function gameOver() {
+    makeVisible("gameOver");
 
 }
 
