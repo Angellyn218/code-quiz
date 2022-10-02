@@ -125,6 +125,14 @@ function init() {
 // welcome display --> not hidden
 function welcome() {
     titleEl.textContent = "Welcome to Angel's Code Quiz!";
+    for (var i = 0; i < screensEls.length; i++) {
+        var id = screensEls[i].getAttribute("id");
+        if (id === "welcome") {
+            screensEls[i].setAttribute("style", "display:inline");
+        } else {
+            screensEls[i].setAttribute("style", "display:none");
+        }
+    }
 }
 
 // intializeGame:
@@ -188,4 +196,6 @@ function welcome() {
 //      - button1: "Back to main"
 //              - when pressed, calls welcome function
 
+// Make section invisible function
+//      - makes all screens except for screen with id of input invisible
 init();

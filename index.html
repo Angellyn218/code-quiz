@@ -12,7 +12,7 @@
         <h1 id="title"></h1>
     </header>
     <div class="screens" id="welcome">
-        <button class="welcome" id="start">Start Game</button>
+        <button class="welcome" id="start" data-section="welcome">Start Game</button>
         <button class="welcome" id="scores">High Scores</button>
     </div>
     <div class="screens" id="answers">
@@ -22,13 +22,13 @@
         <button class="answers" id="3"></button>
     </div>
     <div class="screens" id="gameOver">
-        <h2>Would you like to save your score?</h2>
+        <h2 class="gameOver">Would you like to save your score?</h2>
         <button class="gameOver" id="yes">yes</button>
         <button class="gameOver" id="no">no</button>
     </div>
     <div class="screens" id="submitScore">
         <form id="form">
-            <input type="text" id="initals" placeholder="Initials" />
+            <input type="text" id="initials" placeholder="Initials" />
             <button id="save">Save Score</button>
         </form>  
     </div>
