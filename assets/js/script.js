@@ -14,7 +14,7 @@ var screensEls = document.getElementsByClassName("screens");
 // *** buttons, inputs, and lists ***
 // welcome div:
 var startEl = document.getElementById("start");
-var scoreEl = document.getElementById("score");
+var scoresEl = document.getElementById("scores");
 // Ansswers div:
 var answer0El = document.getElementById("0");
 var answer1El = document.getElementById("1");
@@ -125,17 +125,6 @@ var currentQuestion = 0;
 //              - if labeled no, call welcome function
 //              - if labeled save, call storeScore
 //              - if labelded exit, call welcome function
-startEl.addEventListener("click", initializeGame);
-scoreEl.addEventListener("click", highScores);
-answer0El.addEventListener("click", checkAnswer("0"));
-answer1El.addEventListener("click", checkAnswer("1"));
-answer2El.addEventListener("click", checkAnswer("2"));
-answer3El.addEventListener("click", checkAnswer("3"));
-yesEl.addEventListener("click", saveScore);
-noEl.addEventListener("click", welcome);
-saveEl.addEventListener("click", storeScore);
-exitEl.addEventListener("click", welcome)
-
 
 // init function (initialize website):
 //      - check saved high scores and save to high scores array
@@ -163,7 +152,7 @@ function welcome() {
 //      - set timeLeft = 90;
 //      - set currentQuestion = 0;
 //      - call playGame funtion
-function initalizeGame() {
+function initializeGame() {
     console.log("start");
 }
 
@@ -226,7 +215,7 @@ function storeScore() {
 //      - button1: "Back to main"
 //              - when pressed, calls welcome function
 function highScores() {
-    
+    console.log("score");
 }
 
 // Make section invisible function
@@ -244,4 +233,15 @@ function makeVisible(screen) {
 
 // initialize screen
 init();
+
+startEl.addEventListener("click", initializeGame);
+scoresEl.addEventListener("click", highScores);
+answer0El.addEventListener("click", checkAnswer("0"));
+answer1El.addEventListener("click", checkAnswer("1"));
+answer2El.addEventListener("click", checkAnswer("2"));
+answer3El.addEventListener("click", checkAnswer("3"));
+yesEl.addEventListener("click", saveScore);
+noEl.addEventListener("click", welcome);
+saveEl.addEventListener("click", storeScore);
+exitEl.addEventListener("click", welcome);
 
