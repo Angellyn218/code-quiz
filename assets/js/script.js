@@ -23,6 +23,7 @@ var answer1El = document.getElementById("1");
 var answer2El = document.getElementById("2");
 var answer3El = document.getElementById("3");
 // GameOver div:
+var finalScoreEl =document.getElementById("finalScore");
 var yesEl = document.getElementById("yes");
 var noEl = document.getElementById("no");
 // submitScore div:
@@ -186,6 +187,7 @@ function playGame() {
             timeLeft--;
         } else {
 
+            clearInterval(timeInterval);
             gameOver();
         }
     }, 1000);
@@ -236,8 +238,9 @@ function checkAnswer3() {
 //              - button2: "no"
 //                      - calls welcome function
 function gameOver() {
+    titleEl.textContent = "Game Over";
+    finalScoreEl.textContent = "Final Score: " + currentScore;
     makeVisible("gameOver");
-
 }
 
 // saveScore function:
@@ -248,7 +251,8 @@ function gameOver() {
 //              - button1: "save"
 //      - when save button clicked, call storeScore function
 function saveScore() {
-
+    titleEl.textContent = "Save Score";
+    makeVisible("submitScore");
 }
 
 // storeScore function
