@@ -173,7 +173,7 @@ function playGame() {
     makeVisible("answers");
 
     var timeInterval = setInterval(function() {
-        if (timeLeft > 0) {
+        if ((timeLeft > 0) && (currentQuestion < questions.length)) {
             currentScoreEl.textContent = "Score: " + currentScore;
             timeLeftEl.textContent = "Time Left: " + timeLeft;
 
