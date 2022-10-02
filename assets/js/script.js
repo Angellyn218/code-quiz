@@ -2,12 +2,23 @@
 //      - Header/question section 
 //              - sometimes question
 //              - sometimes 'Good job! Save score'
+// title section
 var titleEl = document.getElementById("title");
+// other sections (only one visible at a time)
+var screensEls = document.getElementsByClassName("screens");
+
 //      - button section
 //              - sometimes buttons answers
 //              - sometimes buttons for start over/high score
 //              - sometimes input for saving initials and high score
-var buttonsEl = document.getElementById("buttons");
+// buttons, inputs, and lists
+var welcomeEls = document.getElementsByClassName("welcome");
+var answersEls = document.getElementsByClassName("answers");
+var gameOverEls = document.getElementsByClassName("gameOver");
+var initialsEl = document.getElementById("initials");
+var saveEl = document.getElementById("save");
+var LeaderboardEl = document.getElementById("leaderboard");
+
 //      - questions array (objects):
 //              - question (string)
 //              - array of possible answers (4 string)
@@ -59,7 +70,7 @@ var quesions = [{
     correct: 1
 }, {
     // question 10
-    question: "When you want to listen for a key down event, what do you put first element of the eventListener function?",
+    question: "When you want to listen for a key down event, what do you put for first element of the eventListener function?",
     answers: ["click", "keydown", "submit", "keyup"],
     correct: 1
 }];
@@ -111,19 +122,9 @@ function init() {
 //                     - when clicked, call initializeGame function
 //              - button2: "high scores" <--- not required
 //                     - when clicked, call highScores function
+// welcome display --> not hidden
 function welcome() {
     titleEl.textContent = "Welcome to Angel's Code Quiz!";
-    var button1El = document.createElement("button");
-    var button2El = document.createElement("button");
-
-    button1El.setAttribute("class", "start");
-    button1El.textContent = "Start Game";
-
-    button2El.setAttribute("class", "score");
-    button2El.textContent = "Leaderboard";
-
-    buttonsEl.appendChild(button1El);
-    buttonsEl.appendChild(button2El);
 }
 
 // intializeGame:
