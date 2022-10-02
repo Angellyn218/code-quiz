@@ -267,17 +267,7 @@ function storeScore(event) {
     };
 
     scores.push(score);
-
-    // if (scores.length == 0) {
-    //     scores.push(score);
-    // } else {
-    //     for (var i = 0; i < scores.length; i++) {
-    //         var current = scores[i];
-    //         if (current.score < currentScore) {
-    //             scores.splice(i, 0, score);
-    //         }
-    //     }
-    // }
+    scores.sort((a, b) => b.score - a.score);
     
     localStorage.setItem("scores", JSON.stringify(scores));
 
