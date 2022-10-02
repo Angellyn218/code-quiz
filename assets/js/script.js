@@ -22,6 +22,8 @@ var answer0El = document.getElementById("0");
 var answer1El = document.getElementById("1");
 var answer2El = document.getElementById("2");
 var answer3El = document.getElementById("3");
+var isCorrectDivEl = document.getElementById("isCorrect");
+var rightOrWrongEl = document.getElementById("rightOrWrong");
 // GameOver div:
 var finalScoreEl =document.getElementById("finalScore");
 var yesEl = document.getElementById("yes");
@@ -184,6 +186,8 @@ function playGame() {
             answer2El.textContent = current.answers[2];
             answer3El.textContent = current.answers[3];
 
+            isCorrectDivEl.setAttribute("style", "display: none");
+
             timeLeft--;
         } else {
 
@@ -197,34 +201,46 @@ function playGame() {
 //      - if button label matches correct answer in associated question add 1 to currentScore
 //      - else, subtract 15 seconds from timeLeft
 function checkAnswer0() {
+    isCorrectDivEl.setAttribute("style", "display-inline");
     if (questions[currentQuestion].correct === 0) {
         currentScore++;
+        rightOrWrongEl.textContent = "Correct!";
     } else {
         timeLeft = timeLeft - 15;
+        rightOrWrongEl.textContent = "Wrong..."
     }
     currentQuestion++;
 }
 function checkAnswer1() {
+    isCorrectDivEl.setAttribute("style", "display-inline");
     if (questions[currentQuestion].correct === 1) {
         currentScore++;
+        rightOrWrongEl.textContent = "Correct!";
     } else {
         timeLeft = timeLeft - 15;
+        rightOrWrongEl.textContent = "Wrong..."
     }
     currentQuestion++;
 }
 function checkAnswer2() {
+    isCorrectDivEl.setAttribute("style", "display-inline");
     if (questions[currentQuestion].correct === 2) {
         currentScore++;
+        rightOrWrongEl.textContent = "Correct!";
     } else {
         timeLeft = timeLeft - 15;
+        rightOrWrongEl.textContent = "Wrong..."
     }
     currentQuestion++;
 }
 function checkAnswer3() {
+    isCorrectDivEl.setAttribute("style", "display-inline");
     if (questions[currentQuestion].correct === 3) {
         currentScore++;
+        rightOrWrongEl.textContent = "Correct!";
     } else {
         timeLeft = timeLeft - 15;
+        rightOrWrongEl.textContent = "Wrong..."
     }
     currentQuestion++;
 }
