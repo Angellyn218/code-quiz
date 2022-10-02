@@ -35,6 +35,7 @@ var saveEl = document.getElementById("save");
 var leaderboardEl = document.getElementById("leaderboard");
 var leaderboardScoreEls = [];
 var exitEl = document.getElementById("exit");
+var deleteEl = document.getElementById("delete");
 
 //      - questions array (objects):
 //              - question (string)
@@ -212,7 +213,7 @@ function checkAnswer0() {
     currentQuestion++;
 }
 function checkAnswer1() {
-    isCorrectDivEl.setAttribute("style", "display-inline");
+    isCorrectDivEl.setAttribute("style", "display:inline");
     if (questions[currentQuestion].correct === 1) {
         currentScore++;
         rightOrWrongEl.textContent = "Correct!";
@@ -269,6 +270,7 @@ function gameOver() {
 function saveScore() {
     titleEl.textContent = "Save Score";
     makeVisible("submitScore");
+    noInitialsEl.setAttribute("style", "display: none");
 }
 
 // storeScore function
@@ -277,9 +279,10 @@ function saveScore() {
 function storeScore(event) {
     console.log(event);
     event.preventDefault();
+    var initials = initialsEl.value.trim();
 
     var score = {
-        initials: initialsEl.value.trim(),
+        initials: initials,
         score: currentScore
     };
 
@@ -316,6 +319,17 @@ function clearHighScores() {
     welcome();
 }
 
+// Deletes leaderboard
+function deleteLeaderboard() {
+    scores = [];
+    localStorage.setItem("scores", JSON.stringify(scores));
+
+    for (var i = leaderboardScoreEls.length - 1; i >= 0; i--) {
+        var child = leaderboardScoreEls.pop();
+        leaderboardEl.removeChild(child);
+    }
+}
+
 // Make section invisible function
 //      - makes all screens except for screen with id of input invisible
 function makeVisible(screen) {
@@ -342,4 +356,5 @@ yesEl.addEventListener("click", saveScore);
 noEl.addEventListener("click", welcome);
 saveEl.addEventListener("click", storeScore);
 exitEl.addEventListener("click", clearHighScores);
+deleteEl.addEventListener("click", deleteLeaderboard)
 

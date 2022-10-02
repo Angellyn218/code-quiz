@@ -24,6 +24,8 @@ button {
     border: none;
     margin-left: 3px;
     margin-right: 3px;
+    margin-top: 3px;
+    margin-bottom: 2px;
 }
 
 .title {
@@ -44,8 +46,6 @@ button {
     border-radius: var(--border-radius);
     font-size: medium;
     padding: 5px 15px;
-    margin-top: 3px;
-    margin-bottom: 2px;
 }
 
 .gameOver {
@@ -63,7 +63,7 @@ button {
     padding: 5px 5px;
 }
 
-#exit {
+.highScore {
     background-image: linear-gradient(var(--exit-button-color));
     color: var(--exit-button-text-color);
     border-radius: var(--border-radius);
