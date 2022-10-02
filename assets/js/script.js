@@ -16,10 +16,10 @@ var screensEls = document.getElementsByClassName("screens");
 var startEl = document.getElementById("start");
 var scoreEl = document.getElementById("score");
 // Ansswers div:
-var answer0 = document.getElementById("0");
-var answer1 = document.getElementById("1");
-var answer2 = document.getElementById("2");
-var answer3 = document.getElementById("3");
+var answer0El = document.getElementById("0");
+var answer1El = document.getElementById("1");
+var answer2El = document.getElementById("2");
+var answer3El = document.getElementById("3");
 // GameOver div:
 var yesEl = document.getElementById("yes");
 var noEl = document.getElementById("no");
@@ -92,7 +92,7 @@ var question = {
     correct: 1
 };
 //      - high scores array (local storage variable)
-var highScores = [];
+var scores = [];
 //      - timeLeft --> int
 var timeLeft = 0;
 //      - currentScore --> int
@@ -116,12 +116,32 @@ var currentQuestion = 0;
 //      - Game ending screen with option to save score button (yes or no)
 //      - Input screen with save score
 
+// when click event listener to button section
+//      - if object type is a button:
+//              - if labeled start, call initalizeGame function
+//              - if labeled score, call highScores function
+//              - if labeled answer_, call checkAnswers function
+//              - if labeled yes, call saveScore function
+//              - if labeled no, call welcome function
+//              - if labeled save, call storeScore
+//              - if labelded exit, call welcome function
+startEl.addEventListener("click", initializeGame);
+scoreEl.addEventListener("click", highScores);
+answer0El.addEventListener("click", checkAnswer("0"));
+answer1El.addEventListener("click", checkAnswer("1"));
+answer2El.addEventListener("click", checkAnswer("2"));
+answer3El.addEventListener("click", checkAnswer("3"));
+yesEl.addEventListener("click", saveScore);
+noEl.addEventListener("click", welcome);
+saveEl.addEventListener("click", storeScore);
+exitEl.addEventListener("click", welcome)
+
 
 // init function (initialize website):
 //      - check saved high scores and save to high scores array
 //      - calls welcome to website function
 function init() {
-    highScores = JSON.parse(localStorage.getItem("highScores"));
+    scores = JSON.parse(localStorage.getItem("scores"));
     welcome();
 }
 
@@ -143,7 +163,9 @@ function welcome() {
 //      - set timeLeft = 90;
 //      - set currentQuestion = 0;
 //      - call playGame funtion
-
+function initalizeGame() {
+    console.log("start");
+}
 
 // playGame function (called every second):
 //      - title: the question title at current index of questions array
@@ -155,20 +177,16 @@ function welcome() {
 //          - print onto screen "Time left: " + timeLeft
 //      - if timeLeft <= 0, call Game over function
 
-// when click event listener to button section
-//      - if object type is a button:
-//              - if labeled start, call initalizeGame function
-//              - if labeled score, call highScores function
-//              - if labeled answer, call checkAnswers function
-//              - if labeled yes, call saveScore function
-//              - if labeled no, call welcome function
-//              - if labeled save, call storeScore
-//              - if labelded back, call welcome function
+function playGame() {
 
+}
 
-// checkAnswers function:
+// checkAnswer function:
 //      - if button label matches correct answer in associated question add 1 to currentScore
 //      - else, subtract 15 seconds from timeLeft
+function checkAnswer(num) {
+
+}
 
 // gameOver function:
 //      - Display screen with:
@@ -178,7 +196,9 @@ function welcome() {
 //                      - calls saveScore function
 //              - button2: "no"
 //                      - calls welcome function
+function gameOver() {
 
+}
 
 // saveScore function:
 //      - Display screen with:
@@ -187,10 +207,16 @@ function welcome() {
 //              - text: "score: " + currentScore
 //              - button1: "save"
 //      - when save button clicked, call storeScore function
+function saveScore() {
+
+}
 
 // storeScore function
-//      - save score to highScore array. 
-//      - save highScore array to localStorage
+//      - save score to scores array. 
+//      - save scores array to localStorage
+function storeScore() {
+
+}
 
 
 // highScores function: 
@@ -199,6 +225,9 @@ function welcome() {
 //              - intials score
 //      - button1: "Back to main"
 //              - when pressed, calls welcome function
+function highScores() {
+    
+}
 
 // Make section invisible function
 //      - makes all screens except for screen with id of input invisible
