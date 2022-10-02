@@ -99,6 +99,10 @@ var currentQuestion = 0;
 // init function (initialize website):
 //      - check saved high scores and save to high scores array
 //      - calls welcome to website function
+function init() {
+    highScores = JSON.parse(localStorage.getItem("highScores"));
+    welcome();
+}
 
 // welcome function:
 //      - create screen with screen with:
