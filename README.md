@@ -2,9 +2,9 @@
 
 ## Description
 
-Practice and study allow students to improve their understanding of the material that they are learning. One of the best ways for a student to confirm their understanding is by testing their knowledge on the material. This was one of the purposes of this website: to help students who are learning web developement to practice their material. Students who want to test and solidify their knowledge on HTML, CSS, Javascript, or any else related to web developement.
+Practice and study allows students to improve their understanding of the material that they are learning. One of the best ways for a student to confirm their understanding is to test their knowledge on the material. This website was designed to help students who are learning web developement. By answering the questions in this test, students who want to test and solidify their knowledge on HTML, CSS, Javascript, or any else related to web developement. They can also compare their level of knowledge to other students who use this website through the leaderboard.
 
-Another benefit of creating this website was my ability to apply the new knowledge that I learned during the 4th week of my coding bootcamp. I learned to incorporate DOM elements, use local storage, setting timers, and so much more! I am thankful that I was able to practice these new skills and have a website to reference whenever I want to refresh my knowledge on web developement. Additionally, I got a lot better at pseudocoding, so I added a lot to this project which helped immensely while writing my JavaScript code.
+For me, another benefit of creating this website was to apply the knowledge that I learned during the 4th week of my coding bootcamp. I learned to incorporate DOM elements, use local storage, set timers, and so much more! I am thankful that I was able to practice these new skills and have a website to reference whenever I want to refresh my knowledge on web developement. Additionally, I got a lot better at pseudocoding during week 4 of my bootcamp, so I added a lot of pseudocode to this project which helped immensely while writing my JavaScript code.
 
 ## Table of Contents
 
@@ -13,6 +13,7 @@ Another benefit of creating this website was my ability to apply the new knowled
 - [Code](#code)
 - [Credits](#credits)
 - [License](#license)
+- [Badges](#badges)
 
 ## Installation
 
@@ -34,9 +35,9 @@ The first button, which is labeled 'Start Game', will start the quiz for you. On
 
 ![website screen with a question from the quiz, a score, timer, and buttons with answers](assets/images/questions.png)
 
-If answered correctly, 1 point is added to your score. If answered incorrectly, 15 seconds is subtracted from your score. The bottom of the screen will display 'Correct!' if you chose the right answer and 'Wrong...' otherwise.
+If answered correctly, 1 point is added to your score. If answered incorrectly, 15 seconds is subtracted from your time left. The bottom of the screen will display 'Correct!' if you chose the right answer and 'Wrong...' otherwise.
 
-Once all the questions have been answered or the timer runs out, the 'Game Over' screen will be displayed.
+Once all the questions have been answered or once the timer runs out, the 'Game Over' screen will be displayed.
 
 ![website screen with 'Game Over' title, final score, the header 'Would you like to save your score?', and buttons with 'yes' and 'no'](assets/images/game-over.png)
 
@@ -44,7 +45,7 @@ The 'no' button takes you back to the welcome screen. The yes 'button' takes you
 
 ![website screen with 'Save Score' title, an input box for initials, and a submit button](assets/images/save-score.png)
 
-Within the input box, you can type in your initials, then press submit which returns you to the welcome screen. You score is saved to the local storage and the Leaderboard.
+Within the input box, you can type in your initials, then press submit which returns you to the welcome screen. You score is saved to the local storage and the Leaderboard. If you don't add initials, you will be stopped from continuing to the welcome screen with the message 'No initials. Please try again.' If you add more than 4 initials, you will be stopped from continuing to the welcome screen with the message 'Initials too long. Please try again.'
 
 The other button on the welcome screen, which is labeled 'High Scores', can be clicked on to get to the leaderboard.
 
@@ -71,11 +72,11 @@ function makeVisible(screen) {
 }
 ```
 
-This function's purpose is to make only one div section visible at a time. It takes in an input sting which should match the id of one div sections on the website. It iterates through each screen. If the screen id matches, then it sets the display to inline. Otherwise, it sets the display to none. This function not only makes the desired screen visible, it also makes sure that all other screens are not visible.
+This function's purpose is to make only one div section visible at a time. It takes in an input sting which should match the id of one div sections on the website. Next, it iterates through each DOM with the class of 'screen'. If the screen id matches, then it sets the screen's display to inline. Otherwise, it sets the display to none. This function not only makes the desired screen visible, it also makes sure that all other screens are not visible.
 
-Since all screens from the welcome to save score screen are all in the index.html file, I had to make sure that each all others that were not being used at the time could not be seen by the user. I used this function in nearly all of my other JavaScript functions. While not completely necessary, it added an extra level of assurance that only one div screen was showing at a time. 
+Since all screens are stored in the index.html file, I had to make sure that only one screen was visible at a time. I used this function in nearly all of my other JavaScript functions. While not completely necessary, it added an extra level of assurance. 
 
-In addition to its usefulness in my code, it taught me to apply the skills of setting attributes and accessing the DOM which was new content that we learned during week 4 of my coding bootcamp.
+In addition to its usefulness in my code, this function taught me to apply the skills of setting attributes and accessing the DOM which was new content that we learned during week 4 of my coding bootcamp.
 
 ## Credits
 
