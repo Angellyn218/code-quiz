@@ -31,6 +31,7 @@ var noEl = document.getElementById("no");
 // submitScore div:
 var initialsEl = document.getElementById("initials");
 var saveEl = document.getElementById("save");
+var noInitials = document.getElementById("noInitials");
 // highScore div:
 var leaderboardEl = document.getElementById("leaderboard");
 var leaderboardScoreEls = [];
@@ -270,6 +271,7 @@ function gameOver() {
 function saveScore() {
     titleEl.textContent = "Save Score";
     makeVisible("submitScore");
+    noInitials.setAttribute("style", "display:none");
 }
 
 // storeScore function
@@ -279,6 +281,18 @@ function storeScore(event) {
     console.log(event);
     event.preventDefault();
     var initials = initialsEl.value.trim();
+
+    if (initials == "") {
+        noInitials.setAttribute("style", "display:inline");
+        noInitials.textContent = "No initials. Please try again.";
+        return;
+    }
+
+    if (initials.length > 4) {
+        noInitials.setAttribute("style", "display:inline");
+        noInitials.textContent = "Initials too long. Please try again.";
+        return;
+    }
 
     var score = {
         initials: initials,

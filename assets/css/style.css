@@ -81,10 +81,18 @@ li {
 
 hr {
     width: 25%;
+    margin-top: 30px;
+    background-color: gray;
+    height: 1.5px;
 }
 
 #rightOrWrong {
     margin-top: -5px;
+    color: gray;
+}
+
+#noInitialsDiv {
+    margin-top: 30px;
     color: gray;
 }
 
