@@ -148,7 +148,7 @@ function init() {
 //                     - when clicked, call highScores function
 // welcome display --> not hidden
 function welcome() {
-    titleEl.textContent = "Welcome to Angel's Code Quiz!";
+    titleEl.textContent = "Welcome to Angel's Web Dev Quiz!";
     titleEl.setAttribute("style", "color:#1B1725");
     makeVisible("welcome");
 }
@@ -202,7 +202,7 @@ function playGame() {
 //      - if button label matches correct answer in associated question add 1 to currentScore
 //      - else, subtract 15 seconds from timeLeft
 function checkAnswer0() {
-    isCorrectDivEl.setAttribute("style", "display-inline");
+    isCorrectDivEl.setAttribute("style", "display: inline");
     if (questions[currentQuestion].correct === 0) {
         currentScore++;
         rightOrWrongEl.textContent = "Correct!";
@@ -213,7 +213,7 @@ function checkAnswer0() {
     currentQuestion++;
 }
 function checkAnswer1() {
-    isCorrectDivEl.setAttribute("style", "display:inline");
+    isCorrectDivEl.setAttribute("style", "display: inline");
     if (questions[currentQuestion].correct === 1) {
         currentScore++;
         rightOrWrongEl.textContent = "Correct!";
@@ -224,7 +224,7 @@ function checkAnswer1() {
     currentQuestion++;
 }
 function checkAnswer2() {
-    isCorrectDivEl.setAttribute("style", "display-inline");
+    isCorrectDivEl.setAttribute("style", "display: inline");
     if (questions[currentQuestion].correct === 2) {
         currentScore++;
         rightOrWrongEl.textContent = "Correct!";
@@ -235,7 +235,7 @@ function checkAnswer2() {
     currentQuestion++;
 }
 function checkAnswer3() {
-    isCorrectDivEl.setAttribute("style", "display-inline");
+    isCorrectDivEl.setAttribute("style", "display: inline");
     if (questions[currentQuestion].correct === 3) {
         currentScore++;
         rightOrWrongEl.textContent = "Correct!";
@@ -270,7 +270,6 @@ function gameOver() {
 function saveScore() {
     titleEl.textContent = "Save Score";
     makeVisible("submitScore");
-    noInitialsEl.setAttribute("style", "display: none");
 }
 
 // storeScore function
@@ -302,6 +301,7 @@ function storeScore(event) {
 //      - button1: "Back to main"
 //              - when pressed, calls welcome function
 function highScores() {
+    titleEl.textContent = "Leaderboard";
     makeVisible("highScore");
     for (var i = 0; i < scores.length; i++) {
         var li = document.createElement("li");
