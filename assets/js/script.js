@@ -1,17 +1,8 @@
-// Always available variables:
-//      - Header/question section 
-//              - sometimes question
-//              - sometimes 'Good job! Save score'
 // title section
 var titleEl = document.getElementById("title");
 // other sections (only one visible at a time)
 var screensEls = document.getElementsByClassName("screens");
 
-//      - button section
-//              - sometimes buttons answers
-//              - sometimes buttons for start over/high score
-//              - sometimes input for saving initials and high score
-// *** buttons, inputs, and lists ***
 // welcome div:
 var startEl = document.getElementById("start");
 var scoresEl = document.getElementById("scores");
@@ -38,10 +29,10 @@ var leaderboardScoreEls = [];
 var exitEl = document.getElementById("exit");
 var deleteEl = document.getElementById("delete");
 
-//      - questions array (objects):
-//              - question (string)
-//              - array of possible answers (4 string)
-//              - correct answer (index/number)
+// questions array (objects):
+//       - question (string)
+//       - array of possible answers (4 string)
+//       - correct answer (index/number)
 var questions = [{
     // question 1
     question: "What is the main language used to add styling a website?",
@@ -94,44 +85,16 @@ var questions = [{
     correct: 1
 }];
 
-//      - high scores array (local storage variable)
+// Array of scores
 var scores = [];
-//      - timeLeft --> int
+// Time Left
 var timeLeft = 0;
-//      - currentScore --> int
+//  Current Score
 var currentScore = 0;
-//      - currentQuestion --> int/index
+// Current Question (index)
 var currentQuestion = 0;
-// Temp Variables:
-//      - start button/start over button 
-//      - high score button
-//      - question buttons
 
-
-// Todos:
-//      - init screen (with start game and check high scores)
-//      - Timer 
-//      - After questions start, when click 
-//              - if correct answer, add to score 
-//              - else subract from time
-//              - if timer 0 or no questions left
-//              - ending screen
-//      - Game ending screen with option to save score button (yes or no)
-//      - Input screen with save score
-
-// when click event listener to button section
-//      - if object type is a button:
-//              - if labeled start, call playGame function
-//              - if labeled score, call highScores function
-//              - if labeled answer_, call checkAnswers function
-//              - if labeled yes, call saveScore function
-//              - if labeled no, call welcome function
-//              - if labeled save, call storeScore
-//              - if labelded exit, call welcome function
-
-// init function (initialize website):
-//      - check saved high scores and save to high scores array
-//      - calls welcome to website function
+// Initializes website with leaderboard from local storage. Then, calls function to show welcome screen
 function init() {
     var scoresLocalStorage = JSON.parse(localStorage.getItem("scores"));
     if (scoresLocalStorage !== null) {
@@ -140,36 +103,14 @@ function init() {
     welcome();
 }
 
-// welcome function:
-//      - create screen with screen with:
-//              - title: "Wecome to Code Quiz"
-//              - button1: "start game" 
-//                     - when clicked, call initializeGame function
-//              - button2: "high scores" <--- not required
-//                     - when clicked, call highScores function
-// welcome display --> not hidden
+// Shows welcome screen with start button and leaderboard button
 function welcome() {
     titleEl.textContent = "Welcome to Angel's Web Dev Quiz!";
     titleEl.setAttribute("style", "color:#1B1725");
     makeVisible("welcome");
 }
 
-// intializeGame:
-//      - set currentScore = 0;
-//      - set timeLeft = 90;
-//      - set currentQuestion = 0;
-//      - call playGame funtion
-
-// playGame function (called every second):
-//      - title: the question title at current index of questions array
-//              - button1: possible answer 1
-//              - button2: possible answer 2
-//              - button3: possible answer 3
-//              - button4: possible answer 4
-//      - subtract 1 from timeLeft
-//          - print onto screen "Time left: " + timeLeft
-//      - if timeLeft <= 0, call Game over function
-
+// playGame function (called every second) shows screen to display questions, current score, and time left to user
 function playGame() {
     currentScore = 0;
     timeLeft = 90;
@@ -199,9 +140,7 @@ function playGame() {
     }, 1000);
 }
 
-// checkAnswer function:
-//      - if button label matches correct answer in associated question add 1 to currentScore
-//      - else, subtract 15 seconds from timeLeft
+// If button label matches correct answer in associated question add 1 to currentScore. Else, subtracts 15 seconds from timeLeft
 function checkAnswer0() {
     isCorrectDivEl.setAttribute("style", "display: inline");
     if (questions[currentQuestion].correct === 0) {
@@ -247,36 +186,21 @@ function checkAnswer3() {
     currentQuestion++;
 }
 
-// gameOver function:
-//      - Display screen with:
-//              - title: "Game over!"
-//              - subtitle: "Would you like to save your score?"
-//              - button1: "yes"
-//                      - calls saveScore function
-//              - button2: "no"
-//                      - calls welcome function
+// Displays "Game over!" screen and asks user "Would you like to save your score?" (yes or no)
 function gameOver() {
     titleEl.textContent = "Game Over";
     finalScoreEl.textContent = "Final Score: " + currentScore;
     makeVisible("gameOver");
 }
 
-// saveScore function:
-//      - Display screen with:
-//              - title: "Save score"
-//              - input1, label: Initials
-//              - text: "score: " + currentScore
-//              - button1: "save"
-//      - when save button clicked, call storeScore function
+// Displays "Save score" screen with input for initials
 function saveScore() {
     titleEl.textContent = "Save Score";
     makeVisible("submitScore");
     noInitials.setAttribute("style", "display:none");
 }
 
-// storeScore function
-//      - save score to scores array. 
-//      - save scores array to localStorage
+// If input > 0 and input less than 4, saves score to scores array and save scores array to localStorage
 function storeScore(event) {
     console.log(event);
     event.preventDefault();
@@ -308,12 +232,7 @@ function storeScore(event) {
 }
 
 
-// highScores function: 
-//      - Display screen with:
-//      - list of high scores:
-//              - intials score
-//      - button1: "Back to main"
-//              - when pressed, calls welcome function
+// Displays screen with list of high scores. Also has "Back to main menu" and "Delete Leaderboard" button
 function highScores() {
     titleEl.textContent = "Leaderboard";
     makeVisible("highScore");
@@ -325,6 +244,7 @@ function highScores() {
     }
 }
 
+// Clears learderboard when user returns to main menu
 function clearHighScores() {
     for (var i = leaderboardScoreEls.length - 1; i >= 0; i--) {
         var child = leaderboardScoreEls.pop();
@@ -333,7 +253,7 @@ function clearHighScores() {
     welcome();
 }
 
-// Deletes leaderboard
+// Deletes leaderboard from local storage and scores array
 function deleteLeaderboard() {
     var deleteScores = confirm("Are you sure that you want to delete the leaderboard?");
     if (deleteScores) {
@@ -348,8 +268,7 @@ function deleteLeaderboard() {
     
 }
 
-// Make section invisible function
-//      - makes all screens except for screen with id of input invisible
+// Makes all screens except for screen with id of input invisible
 function makeVisible(screen) {
     for (var i = 0; i < screensEls.length; i++) {
         var id = screensEls[i].getAttribute("id");
@@ -364,6 +283,7 @@ function makeVisible(screen) {
 // initialize screen
 init();
 
+// Event listeners
 startEl.addEventListener("click", playGame);
 scoresEl.addEventListener("click", highScores);
 answer0El.addEventListener("click", checkAnswer0);

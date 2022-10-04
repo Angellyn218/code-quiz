@@ -1,3 +1,4 @@
+/* Variables */
 :root{
     --background-color: #dcecf5;
     --start-title-color: darkblue;
@@ -12,14 +13,17 @@
     --exit-button-color: #97b6c5, #4697c0;
     --exit-button-text-color: white;
     --border-radius: 5px;
+    --hidden-text-color: grey;
 }
 
+/* Body of html (default styling) */
 body {
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     text-align: center;
     background-color: var(--background-color);
 }
 
+/* Default button styling */
 button {
     border: none;
     margin-left: 3px;
@@ -28,10 +32,12 @@ button {
     margin-bottom: 2px;
 }
 
+/* Styling of title */
 .title {
     color: var(--start-title-color);
 }
 
+/* Styling of welcome buttons */
 .welcome {
     background-image: linear-gradient(var(--start-button-color));
     color: var(--start-button-text-color);
@@ -40,6 +46,7 @@ button {
     padding: 12px 32px;
 }
 
+/* Styling of answer buttons */
 .answers {
     background-image: linear-gradient(25deg, var(--answer-button-color));
     color: var(--answer-button-text-color);
@@ -48,6 +55,7 @@ button {
     padding: 5px 15px;
 }
 
+/* Styling of game over buttons */
 .gameOver {
     background-image: linear-gradient(25deg, var(--gameOver-button-color));
     color: var(--gameOver-button-text-color);
@@ -56,6 +64,7 @@ button {
     padding: 12px 32px;
 }
 
+/* Styling of save button */
 #save {
     background-image: linear-gradient(25deg, var(--save-button-color));
     color: var(--save-button-text-color);
@@ -63,6 +72,7 @@ button {
     padding: 5px 5px;
 }
 
+/* styling of buttons on leaderboard screen */
 .highScore {
     background-image: linear-gradient(var(--exit-button-color));
     color: var(--exit-button-text-color);
@@ -70,6 +80,7 @@ button {
     padding: 5px 5px;
 }
 
+/* Styling of li elements (on leaderboard) */
 li {
     text-align: left;
     margin-left: 45%;
@@ -79,21 +90,24 @@ li {
     font-size: large;
 }
 
+/* Styling of line under answer buttons */
 hr {
     width: 25%;
     margin-top: 30px;
-    background-color: gray;
+    background-color: var(--hidden-text-color);
     height: 1.5px;
 }
 
+/* Styling of right or wrong text */
 #rightOrWrong {
     margin-top: -5px;
-    color: gray;
+    color: var(--hidden-text-color);
 }
 
+/* Styling of the error messages on save score screen */
 #noInitialsDiv {
     margin-top: 30px;
-    color: gray;
+    color: var(--hidden-text-color);
 }
 
 

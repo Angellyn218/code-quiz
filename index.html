@@ -8,48 +8,65 @@
     <link rel="stylesheet" href="./assets/css/style.css">
 </head>
 <body>
+    <!--Title (changes for every screen)-->
     <header>
         <h1 id="title"></h1>
     </header>
+
+    <!--Welcome screen (button section)-->
     <div class="screens" id="welcome">
         <br/>
         <br/>
         <br/>
+        <!--buttons-->
         <button class="welcome" id="start" data-section="welcome">Start Game</button>
         <button class="welcome" id="scores">High Scores</button>
     </div>
+
+    <!--Answers screen (with current score, time left, and answers)-->
     <div class="screens" id="answers">
+        <!--Current score and time left-->
         <h3 id="currentScore"></h3>
         <h3 id="timeLeft"></h3>
+        <!--Answers buttons-->
         <button class="answers" id="0"></button>
         <button class="answers" id="1"></button>
         <button class="answers" id="2"></button>
         <button class="answers" id="3"></button>
+        <!--Will show if user gets answer right or wrong-->
         <div id="isCorrect">
             <hr/>
             <p id="rightOrWrong"></p>
         </div>
     </div>
+
+    <!--Game Over screen (with final score, and buttons for asking if the user would like to save their score)-->
     <div class="screens" id="gameOver">
         <h2 id="finalScore"></h2>
         <h3>Would you like to save your score?</h3>
         <button class="gameOver" id="yes">yes</button>
         <button class="gameOver" id="no">no</button>
     </div>
+
+    <!--Save Score screen (with input and button to save score.)-->
     <div class="screens" id="submitScore">
+        <!--Input + Save score button-->
         <form id="form">
             <input type="text" id="initials" placeholder="Initials" />
             <button id="save">Save Score</button>
         </form>  
+        <!--Will only show if input does not fulfill requirements-->
         <div id="noInitialsDiv">
             <p id="noInitials"></p>
-        </div>
-        
+        </div>   
     </div>
-    <div class="screens" id="highScore">
-        <ol id="leaderboard">
 
+    <!--Leaderboard screen-->
+    <div class="screens" id="highScore">
+        <!--List of scores with initials-->
+        <ol id="leaderboard">
         </ol>
+        <!--buttons-->
         <button class="highScore" id="exit">Back to main menu</button>
         <button class="highScore" id="delete">Delete leaderboard</button>
     </div>
